@@ -14,33 +14,32 @@ import io.github.bluelhf.chatcat.util.InputUtils;
 import io.github.bluelhf.chatcat.util.TextUtils;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.core.Appender;
-import org.apache.logging.log4j.core.LoggerContext;
-import org.apache.logging.log4j.core.config.Configuration;
-import org.apache.logging.log4j.core.config.LoggerConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
-import org.jetbrains.annotations.Nullable;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.time.Duration;
 import java.util.*;
 
 public class ChatCat extends BukkitPlugin {
-    private static ChatCat instance;
 
     private VaultHook vaultAPI;
     private PAPIHook PAPI;
+
     private MuteConfig muteCache;
     private Timer muteInvalidator = new Timer();
 
     private ChatConfig config;
 
-
     @Override
     public void startup() {
-        instance = this;
+        long timeTracker = System.currentTimeMillis();
         config = new ChatConfig();
+        log("Initialised config in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
 
+
+        timeTracker = System.currentTimeMillis();
         // Initialise mute cache and
         // the bukkit scheduler to save it every 30 minutes
         muteCache = new MuteConfig();
@@ -51,7 +50,10 @@ public class ChatCat extends BukkitPlugin {
                 muteCache.save();
             }
         }, 0, 1800000); // period is in ms, 1800000ms = 30min
+        log("Initialised mute cache in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
 
+
+        timeTracker = System.currentTimeMillis();
         List<String> hooks = new ArrayList<>();
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             PAPI = new PAPIHook();
@@ -71,12 +73,14 @@ public class ChatCat extends BukkitPlugin {
         }
         String hookString = hookBuilder.toString().length() >= 2 ? hookBuilder.toString().substring(0, hookBuilder.toString().length() - 2) + "!" : "nothing.";
 
-        saveDefaultConfig();
+        log("Loaded " + hooks.size() + " hooks in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
+        timeTracker = System.currentTimeMillis();
         Bukkit.getPluginManager().registerEvents(new ChatFormatter(), this);
         Bukkit.getPluginManager().registerEvents(new MuteHandler(), this);
         register(new MuteCommand());
         register(new ChatCommand());
         register(new UnmuteCommand());
+        log("Registered events and commands in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
 
         Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString("   &b____ _           _   ", true));
         Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString("  &b/ ___| |__   __ _| |_ ", true));
@@ -90,7 +94,6 @@ public class ChatCat extends BukkitPlugin {
 
     @Override
     public void disable() {
-        instance = null;
         config = null;
         muteInvalidator.cancel();
         muteInvalidator = null;
@@ -101,82 +104,29 @@ public class ChatCat extends BukkitPlugin {
     }
 
 
-    public @Nullable VaultHook getVault() {
+    public VaultHook getVault() {
         return vaultAPI;
     }
 
-    public @Nullable PAPIHook getPAPI() {
+    public PAPIHook getPAPI() {
         return PAPI;
     }
 
-    public @Nullable ChatConfig getChatConfig() {
+    public ChatConfig getChatConfig() {
         return config;
     }
 
 
     /**
-     * Logs a message directly to the Minecraft logger, provided
-     * that the plugin logging level is high enough.
+     * Logs a message if the config log level allows it.
      *
      * @param logLevel The level to log the message at
      * @param msg      The message to log
-     * @param force    Whether to log the message regardless
-     *                 of the server's logging level or not.
-     * @param prefix   Whether to prefix the message with the plugin's
      *                 logging prefix (usually its name, unless otherwise defined in plugin.yml)
      */
-    public void log(String msg, Level logLevel, boolean force, boolean prefix) {
-        if (logLevel.intLevel() <= InputUtils.stringToLevel(config.logLevel, Level.INFO).intLevel()) {
-            String prefixString = prefix ? "[" + (getDescription().getPrefix() != null ? getDescription().getPrefix() : getDescription().getName()) + "] " : "";
-            msg = prefixString + msg;
-            org.apache.logging.log4j.core.Logger mcLogger = (org.apache.logging.log4j.core.Logger) LogManager.getRootLogger();
-
-            if (force) {
-                // Fuck you, spigot 💘
-                LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
-                Configuration config = ctx.getConfiguration();
-
-                LoggerConfig rootLoggerConfig = config.getLoggers().get("");
-                getLogger().info(String.join(", ", config.getAppenders().keySet()));
-                Appender oldTerminalConsole = config.getAppender("TerminalConsole");
-                Appender oldServerGuiConsole = config.getAppender("ServerGuiConsole");
-                Appender oldFile = config.getAppender("File");
-                rootLoggerConfig.removeAppender("TerminalConsole");
-                rootLoggerConfig.removeAppender("ServerGuiConsole");
-                rootLoggerConfig.removeAppender("File");
-                rootLoggerConfig.addAppender(oldTerminalConsole, Level.ALL, null);
-                rootLoggerConfig.addAppender(oldServerGuiConsole, Level.ALL, null);
-                rootLoggerConfig.addAppender(oldFile, null, null);
-                ctx.updateLoggers();
-
-                Level oldLogLevel = mcLogger.getLevel();
-                mcLogger.setLevel(Level.ALL);
-                mcLogger.log(logLevel, msg);
-
-                mcLogger.setLevel(oldLogLevel);
-                rootLoggerConfig.removeAppender("TerminalConsole");
-                rootLoggerConfig.removeAppender("ServerGuiConsole");
-                rootLoggerConfig.removeAppender("File");
-                rootLoggerConfig.addAppender(oldTerminalConsole, Level.INFO, null);
-                rootLoggerConfig.addAppender(oldServerGuiConsole, Level.INFO, null);
-                rootLoggerConfig.addAppender(oldFile, Level.INFO, null);
-                ctx.updateLoggers();
-            } else {
-                mcLogger.log(logLevel, msg);
-            }
-        }
-    }
-
-    public void log(String msg, Level logLevel, boolean force) {
-        log(msg, logLevel, force, true);
-    }
-
     public void log(String msg, Level logLevel) {
-        log(msg, logLevel, false);
-    }
-
-    public void log(String msg) {
-        log(msg, Level.INFO);
+        if (logLevel.intLevel() <= Level.toLevel(config.logLevel, Level.INFO).intLevel())
+            getLogger().info(msg);
     }
 
     public void unmutePlayer(OfflinePlayer player) {
@@ -207,8 +157,8 @@ public class ChatCat extends BukkitPlugin {
         muteCache.mutes = newMutes;
     }
 
-    public static ChatCat getInstance() {
-        return instance;
+    public static @NotNull ChatCat get() {
+        return (ChatCat) JavaPlugin.getProvidingPlugin(ChatCat.class);
     }
 
 }

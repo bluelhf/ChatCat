@@ -1,3 +1,7 @@
 name: ChatCat
 version: 1.0
-main: io.github.bluelhf.chatcat.ChatCat
+api-version: 1.13
+main: ${project.groupId}.chatcat.${project.artifactId}
+softdepend:
+  - PlaceholderAPI
+  - Vault

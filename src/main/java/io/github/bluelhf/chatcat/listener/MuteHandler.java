@@ -16,14 +16,14 @@ public class MuteHandler implements Listener {
     public void onChat(AsyncPlayerChatEvent e) {
         String uuid = e.getPlayer().getUniqueId().toString();
 
-        ChatCat.getInstance().getMuteCache().cleanExpired();
+        ChatCat.get().getMuteCache().cleanExpired();
 
-        for (HashMap<String, Object> muteEntry : ChatCat.getInstance().getMutes()) {
+        for (HashMap<String, Object> muteEntry : ChatCat.get().getMutes()) {
             if (muteEntry.get("uuid").toString().equalsIgnoreCase(uuid)) {
-                Double seconds = Double.parseDouble(muteEntry.getOrDefault("expiry", -1).toString());
+                double seconds = Double.parseDouble(muteEntry.getOrDefault("expiry", -1).toString());
                 Duration duration = Duration.ofSeconds(seconds != -1 ? (long) Math.ceil(seconds - System.currentTimeMillis() / 1000.0) : -1);
                 String humanReadable = TextUtils.humanReadableDuration(duration, true);
-                ChatCat.getInstance().log(uuid + " tried to speak while muted: " + muteEntry.toString(), Level.DEBUG, true);
+                ChatCat.get().log(uuid + " tried to speak while muted: " + muteEntry.toString(), Level.DEBUG);
                 if (Boolean.parseBoolean(String.valueOf(muteEntry.get("soft")))) {
                     e.getRecipients().clear();
                     e.getRecipients().add(e.getPlayer());
@@ -32,12 +32,12 @@ public class MuteHandler implements Listener {
                 e.setCancelled(true);
                 if (!muteEntry.get("reason").toString().equalsIgnoreCase("")) {
                     e.getPlayer().spigot().sendMessage(TextUtils.fromLegacyString(String.format(
-                            ChatCat.getInstance().getChatConfig().muteMessage,
+                            ChatCat.get().getChatConfig().muteMessage,
                             humanReadable,
                             muteEntry.get("reason").toString()
                     ), true));
                 } else {
-                    e.getPlayer().spigot().sendMessage(TextUtils.fromLegacyString(String.format(ChatCat.getInstance().getChatConfig().muteMessageNoReason, humanReadable), true));
+                    e.getPlayer().spigot().sendMessage(TextUtils.fromLegacyString(String.format(ChatCat.get().getChatConfig().muteMessageNoReason, humanReadable), true));
                 }
                 return;
             }

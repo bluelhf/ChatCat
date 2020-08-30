@@ -1,14 +1,15 @@
 package io.github.bluelhf.chatcat.command;
 
 import com.moderocky.mask.template.WrappedCommand;
-import io.github.bluelhf.chat.Chat;
-import io.github.bluelhf.chat.util.TextUtils;
+import io.github.bluelhf.chatcat.ChatCat;
+import io.github.bluelhf.chatcat.util.TextUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -19,14 +20,14 @@ public class ChatCommand implements WrappedCommand {
         if (args.length == 0) {
             TextUtils.sendMessage(commandSender, helpMessage(label));
         } else if (args[0].equalsIgnoreCase("reload")) {
-            if (!commandSender.hasPermission("chat.reload")) {
-                TextUtils.sendMessage(commandSender, Chat.getInstance().getChatConfig().permissionMessage);
+            if (!commandSender.hasPermission("chatcat.reload")) {
+                TextUtils.sendMessage(commandSender, ChatCat.get().getChatConfig().permissionMessage);
                 return true;
             }
             TextUtils.sendMessage(commandSender, "&bReloading...");
             long start = System.currentTimeMillis();
-            Chat.getInstance().getChatConfig().load();
-            Chat.getInstance().getMuteCache().save();
+            ChatCat.get().getChatConfig().load();
+            ChatCat.get().getMuteCache().save();
             TextUtils.sendMessage(commandSender, "&bReloaded in " + (System.currentTimeMillis() - start) + "ms.");
         } else { TextUtils.sendMessage(commandSender, helpMessage(label)); }
         return true;
@@ -41,7 +42,7 @@ public class ChatCommand implements WrappedCommand {
 
     @Override
     public @NotNull List<String> getAliases() {
-        return new ArrayList<>();
+        return Arrays.asList("ccat", "cc", "chatc");
     }
 
     @Override
@@ -51,7 +52,7 @@ public class ChatCommand implements WrappedCommand {
 
     @Override
     public @NotNull String getDescription() {
-        return "Main command for Chat.";
+        return "Main command for ChatCat.";
     }
 
     @Override
@@ -66,7 +67,7 @@ public class ChatCommand implements WrappedCommand {
 
     @Override
     public @NotNull String getCommand() {
-        return "chat";
+        return "chatcat";
     }
 
     @Override

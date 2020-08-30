@@ -1,9 +1,9 @@
 package io.github.bluelhf.chatcat.command;
 
 import com.moderocky.mask.template.WrappedCommand;
-import io.github.bluelhf.chat.Chat;
-import io.github.bluelhf.chat.util.InputUtils;
-import io.github.bluelhf.chat.util.TextUtils;
+import io.github.bluelhf.chatcat.ChatCat;
+import io.github.bluelhf.chatcat.util.InputUtils;
+import io.github.bluelhf.chatcat.util.TextUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -22,13 +22,13 @@ import java.util.stream.Collectors;
 public class MuteCommand implements WrappedCommand {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
-        if (!sender.hasPermission("chat.mutes.mute")) {
-            TextUtils.sendMessage(sender, Chat.getInstance().getChatConfig().permissionMessage);
+        if (!sender.hasPermission("chatcat.mutes.mute")) {
+            TextUtils.sendMessage(sender, ChatCat.get().getChatConfig().permissionMessage);
             return true;
         }
 
         if (args.length == 0) {
-            TextUtils.sendMessage(sender, Chat.getInstance().getChatConfig().invalidArguments);
+            TextUtils.sendMessage(sender, ChatCat.get().getChatConfig().invalidArguments);
             return true;
         }
 
@@ -48,7 +48,7 @@ public class MuteCommand implements WrappedCommand {
         @SuppressWarnings("deprecation") // Because there is no other way.
                 OfflinePlayer player = Bukkit.getOfflinePlayer(args[0]);
         if (!player.hasPlayedBefore()) {
-            TextUtils.sendMessage(sender, Chat.getInstance().getChatConfig().neverPlayedBefore);
+            TextUtils.sendMessage(sender, ChatCat.get().getChatConfig().neverPlayedBefore);
             return true;
         }
 
@@ -59,7 +59,7 @@ public class MuteCommand implements WrappedCommand {
             // To specify a reason, the user also has to
             // specify a duration. This could be changed, but I think it works nicely.
             if (InputUtils.inputToDuration(args[1]) == null) {
-                TextUtils.sendMessage(sender, Chat.getInstance().getChatConfig().invalidArguments);
+                TextUtils.sendMessage(sender, ChatCat.get().getChatConfig().invalidArguments);
                 return true;
             } else {
                 // inputToDuration automatically adds P and T characters as specified by the
@@ -78,21 +78,21 @@ public class MuteCommand implements WrappedCommand {
             reason = builder.toString().length() > 0 ? builder.toString().substring(1) : "";
         }
 
-        Chat.getInstance().mutePlayer(player, duration, reason, flagMap.get("-s"));
+        ChatCat.get().mutePlayer(player, duration, reason, flagMap.get("-s"));
 
         String humanDuration = (TextUtils.humanReadableDuration(duration, true));
         String message;
         if (reason.equalsIgnoreCase("")) {
             // Muted without reason
             message = TextUtils.colour(String.format(
-                    Chat.getInstance().getChatConfig().mutednoreason,
+                    ChatCat.get().getChatConfig().mutedNoReason,
                     player.getName(),
                     humanDuration
             ));
         } else {
             // Muted with reason
             message = TextUtils.colour(String.format(
-                    Chat.getInstance().getChatConfig().muted,
+                    ChatCat.get().getChatConfig().muted,
                     player.getName(),
                     humanDuration,
                     reason
@@ -123,7 +123,7 @@ public class MuteCommand implements WrappedCommand {
 
     @Override
     public @NotNull String getDescription() {
-        return "Mute command from Chat";
+        return "Mute command from ChatCat";
     }
 
     @Override
@@ -133,7 +133,7 @@ public class MuteCommand implements WrappedCommand {
 
     @Override
     public @Nullable String getPermissionMessage() {
-        return TextUtils.colour(Chat.getInstance().getChatConfig().permissionMessage);
+        return TextUtils.colour(ChatCat.get().getChatConfig().permissionMessage);
     }
 
     @Override

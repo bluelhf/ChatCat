@@ -12,57 +12,54 @@ public class ChatConfig implements Config {
 
 
     @Configurable
-    @Configurable.Comment(text = {
-            "Toggles prefixing messages entirely."
-    })
     public boolean useMessagePrefix = true;
 
     @Configurable
-    @Configurable.Keyed(nodeName="message-prefix")
-    @Configurable.Comment(text = {
-            "What to prefix messages with (default is '<$name&r>: ')"
-    })
+    @Configurable.Keyed("message-prefix")
     public String messagePrefix = "<$name&r>: ";
-    @Configurable(section = "messages.generic")
-    @Configurable.Keyed(nodeName="no-permission")
+
+    @Configurable("messages.generic")
+    @Configurable.Keyed("no-permission")
     public String permissionMessage = "&cYou do not have permission to do that!";
-    @Configurable(section = "messages.generic")
-    @Configurable.Keyed(nodeName="invalid-arguments")
+
+    @Configurable("messages.generic")
+    @Configurable.Keyed("invalid-arguments")
     public String invalidArguments = "&cInvalid arguments!";
-    @Configurable(section = "messages.generic")
-    @Configurable.Keyed(nodeName = "never-played-before")
+
+    @Configurable("messages.generic")
+    @Configurable.Keyed("never-played-before")
     public String neverPlayedBefore = "&cThat player has never played before!";
 
-    @Configurable(section = "messages.mutes")
-    @Configurable.Keyed(nodeName="muted")
+    @Configurable("messages.mutes")
+    @Configurable.Keyed("muted")
     public String muted = "&fPlayer &a%s &fwas muted for &a%s &fwith reason '&a%s&f'";
-    @Configurable(section = "messages.mutes")
-    @Configurable.Keyed(nodeName="muted-no-reason")
-    public String mutednoreason = "&fPlayer &a%s &fwas muted for &a%s&f.";
-    @Configurable(section = "messages.mutes")
-    @Configurable.Keyed(nodeName="unmuted")
+
+    @Configurable("messages.mutes")
+    @Configurable.Keyed("muted-no-reason")
+    public String mutedNoReason = "&fPlayer &a%s &fwas muted for &a%s&f.";
+    @Configurable("messages.mutes")
+    @Configurable.Keyed("unmuted")
     public String unmuted = "&fPlayer &a%s &fwas unmuted.";
-    @Configurable(section = "messages.mutes")
-    @Configurable.Keyed(nodeName="not-muted")
+
+    @Configurable("messages.mutes")
+    @Configurable.Keyed("not-muted")
     public String notmuted = "&cThat player is not muted!";
-    @Configurable(section = "messages.mutes")
-    @Configurable.Keyed(nodeName="mute-notification")
+
+    @Configurable("messages.mutes")
+    @Configurable.Keyed("mute-notification")
     public String muteMessage = "&fYou are &cmuted&f for &c%s&f! Reason: &c%s";
-    @Configurable(section = "messages.mutes")
-    @Configurable.Keyed(nodeName = "mute-notification-no-reason")
+
+    @Configurable("messages.mutes")
+    @Configurable.Keyed("mute-notification-no-reason")
     public String muteMessageNoReason = "&fYou are &cmuted&f for &c%s&f!";
 
     @Configurable
-    @Configurable.Keyed(nodeName="logLevelValue")
-    @Configurable.Comment(text = {
-            "You probably don't need to change this",
-            "unless you're asked to."
-    })
+    @Configurable.Keyed("logLevelValue")
     public @NotNull String logLevel = "INFO";
 
     @Override
     public @NotNull String getFolderPath() {
-        return "plugins/Chat/";
+        return "plugins/ChatCat/";
     }
 
     @Override

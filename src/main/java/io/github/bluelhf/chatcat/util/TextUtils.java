@@ -1,6 +1,6 @@
 package io.github.bluelhf.chatcat.util;
 
-import io.github.bluelhf.chat.Chat;
+import io.github.bluelhf.chatcat.ChatCat;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.apache.commons.lang.time.DurationFormatUtils;
@@ -42,16 +42,16 @@ public class TextUtils {
     }
 
     public static String formatForPlayer(String s, Player p) {
-        if (Chat.getInstance().getPAPI() != null) {
-            s = Chat.getInstance().getPAPI().setPlaceholders(p, s);
+        if (ChatCat.get().getPAPI() != null) {
+            s = ChatCat.get().getPAPI().setPlaceholders(p, s);
         }
 
         s = formatSafe(s);
         String prefix = "", suffix = "";
         try {
-            if (Chat.getInstance().getVault() != null) {
-                prefix = Chat.getInstance().getVault().getVaultChat().getPlayerPrefix(p);
-                suffix = Chat.getInstance().getVault().getVaultChat().getPlayerSuffix(p);
+            if (ChatCat.get().getVault() != null) {
+                prefix = ChatCat.get().getVault().getVaultChat().getPlayerPrefix(p);
+                suffix = ChatCat.get().getVault().getVaultChat().getPlayerSuffix(p);
             }
         } catch (NullPointerException ignored) { }
 

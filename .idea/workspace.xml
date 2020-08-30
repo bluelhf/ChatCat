@@ -1,21 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="81d02287-79e7-4d6e-b593-3f289a10e1e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/command/ChatCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/command/MuteCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/command/UnmuteCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/configuration/ChatConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/configuration/MuteConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/hook/PAPIHook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/hook/VaultHook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/listener/ChatFormatter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/listener/MuteHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/util/InputUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/util/TextUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/ChatCat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/ChatCat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/command/ChatCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/command/ChatCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/command/MuteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/command/MuteCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/command/UnmuteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/command/UnmuteCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/configuration/ChatConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/configuration/ChatConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/configuration/MuteConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/configuration/MuteConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/listener/ChatFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/listener/ChatFormatter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/listener/MuteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/listener/MuteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/util/InputUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/util/InputUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/util/TextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/util/TextUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +55,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="P:/PluginGenerator/StayUp" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -52,6 +79,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588249102961</updated>
+      <workItem from="1598722628071" duration="3655000" />
+      <workItem from="1598731286435" duration="165000" />
+      <workItem from="1598763744729" duration="3009000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1594634006635</created>
@@ -62,6 +92,21 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -79,18 +124,47 @@
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="414" y="154" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.999@0.0.1920.999" timestamp="1594633953306" />
+    <state x="574" y="120" key="#com.intellij.ide.util.MemberChooser" timestamp="1598764453998">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="120" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1598764453998" />
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598723657004">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1598723657004" />
+    <state x="516" y="269" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1598723721216">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="516" y="269" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1598723721216" />
     <state x="587" y="0" key="CommitChangelistDialog2" timestamp="1594634006167">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="587" y="0" key="CommitChangelistDialog2/0.0.1920.999@0.0.1920.999" timestamp="1594634006167" />
-    <state x="740" y="240" key="FileChooserDialogImpl" timestamp="1594633984441">
-      <screen x="0" y="0" width="1920" height="999" />
+    <state x="592" y="198" key="FileChooserDialogImpl" timestamp="1598731450720">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="592" y="198" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1598731450720" />
     <state x="740" y="240" key="FileChooserDialogImpl/0.0.1920.999@0.0.1920.999" timestamp="1594633984441" />
     <state x="836" y="401" key="Github.ShareDialog" timestamp="1594634275867">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="836" y="401" key="Github.ShareDialog/0.0.1920.999@0.0.1920.999" timestamp="1594634275867" />
+    <state width="1495" height="214" key="GridCell.Tab.0.bottom" timestamp="1598806632310">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1495" height="214" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598806632310" />
+    <state width="1495" height="214" key="GridCell.Tab.0.center" timestamp="1598806632309">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1495" height="214" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1598806632309" />
+    <state width="1495" height="214" key="GridCell.Tab.0.left" timestamp="1598806632309">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1495" height="214" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1598806632309" />
+    <state width="1495" height="214" key="GridCell.Tab.0.right" timestamp="1598806632309">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1495" height="214" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598806632309" />
     <state x="461" y="144" key="SettingsEditor" timestamp="1594634224954">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
@@ -99,6 +173,10 @@
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="552" y="228" key="Vcs.Push.Dialog.v2/0.0.1920.999@0.0.1920.999" timestamp="1594634079011" />
+    <state x="283" y="160" key="caller.chooser.dialog" timestamp="1598723659303">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="283" y="160" key="caller.chooser.dialog/0.0.1536.824@0.0.1536.824" timestamp="1598723659303" />
     <state x="767" y="409" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594634111266">
       <screen x="0" y="0" width="1920" height="999" />
     </state>

@@ -2,6 +2,8 @@ package io.github.bluelhf.chatcat.configuration;
 
 import com.moderocky.mask.annotation.Configurable;
 import com.moderocky.mask.template.Config;
+import io.github.bluelhf.chatcat.ChatCat;
+import org.apache.logging.log4j.Level;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -12,13 +14,12 @@ import java.util.List;
     public MuteConfig() { load(); }
 
     @Configurable
-    @Configurable.Comment(text = {"A list of muted people."})
-    @Configurable.Keyed(nodeName = "mutes")
+    @Configurable.Keyed("mutes")
     public List<HashMap<String, Object>> mutes = new ArrayList<>();
 
     @Override
     public @NotNull String getFolderPath() {
-        return "plugins/Chat/";
+        return "plugins/ChatCat/";
     }
 
     @Override
@@ -34,6 +35,13 @@ import java.util.List;
     }
     public boolean removeUUID(String uuid) {
         return mutes.removeIf(muteEntry -> (muteEntry.get("uuid").toString().equalsIgnoreCase(uuid)));
+    }
+
+    @Override
+    public void save() {
+        long timeTracker = System.currentTimeMillis();
+        Config.super.save();
+        ChatCat.get().log("Saved mute cache in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
     }
 
     public boolean isMuted(String uuid) {

@@ -1,8 +1,8 @@
 package io.github.bluelhf.chatcat.command;
 
 import com.moderocky.mask.template.WrappedCommand;
-import io.github.bluelhf.chat.Chat;
-import io.github.bluelhf.chat.util.TextUtils;
+import io.github.bluelhf.chatcat.ChatCat;
+import io.github.bluelhf.chatcat.util.TextUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -19,7 +19,7 @@ public class UnmuteCommand implements WrappedCommand {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length == 0) {
-            TextUtils.sendMessage(commandSender, Chat.getInstance().getChatConfig().invalidArguments);
+            TextUtils.sendMessage(commandSender, ChatCat.get().getChatConfig().invalidArguments);
             return true;
         }
         boolean hidden = false;
@@ -31,16 +31,16 @@ public class UnmuteCommand implements WrappedCommand {
         @SuppressWarnings("deprecation")
         OfflinePlayer player = Bukkit.getOfflinePlayer(args[0]);
         if (!player.hasPlayedBefore()) {
-            TextUtils.sendMessage(commandSender, Chat.getInstance().getChatConfig().neverPlayedBefore);
+            TextUtils.sendMessage(commandSender, ChatCat.get().getChatConfig().neverPlayedBefore);
             return true;
         }
-        if (!Chat.getInstance().getMuteCache().isMuted(player.getUniqueId().toString())) {
-            TextUtils.sendMessage(commandSender, Chat.getInstance().getChatConfig().notmuted);
+        if (!ChatCat.get().getMuteCache().isMuted(player.getUniqueId().toString())) {
+            TextUtils.sendMessage(commandSender, ChatCat.get().getChatConfig().notmuted);
             return true;
         }
-        Chat.getInstance().unmutePlayer(player);
+        ChatCat.get().unmutePlayer(player);
         String message = TextUtils.colour(String.format(
-                Chat.getInstance().getChatConfig().unmuted,
+                ChatCat.get().getChatConfig().unmuted,
                 player.getName()
         ));
 
@@ -64,17 +64,17 @@ public class UnmuteCommand implements WrappedCommand {
 
     @Override
     public @NotNull String getDescription() {
-        return "Unmute command for Chat";
+        return "Unmute command for ChatCat";
     }
 
     @Override
     public @Nullable String getPermission() {
-        return "chat.mutes.unmute";
+        return "chatcat.mutes.unmute";
     }
 
     @Override
     public @Nullable String getPermissionMessage() {
-        return TextUtils.colour(Chat.getInstance().getChatConfig().permissionMessage);
+        return TextUtils.colour(ChatCat.get().getChatConfig().permissionMessage);
     }
 
     @Override

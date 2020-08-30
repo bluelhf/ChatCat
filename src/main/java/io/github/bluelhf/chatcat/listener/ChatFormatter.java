@@ -29,8 +29,8 @@ public class ChatFormatter implements Listener {
     // Ensure compatibility
     @EventHandler(priority = EventPriority.HIGHEST)
     public void compatibilitiser(AsyncPlayerChatEvent e) {
-        if (ChatCat.getInstance().getChatConfig().useMessagePrefix) {
-            e.setFormat(TextUtils.formatForEvent(ChatCat.getInstance().getChatConfig().messagePrefix, e) + TextUtils.formatSafe(e.getMessage()));
+        if (ChatCat.get().getChatConfig().useMessagePrefix) {
+            e.setFormat(TextUtils.formatForEvent(ChatCat.get().getChatConfig().messagePrefix, e) + TextUtils.formatSafe(e.getMessage()));
         }
     }
 
