@@ -37,12 +37,6 @@ import java.util.List;
         return mutes.removeIf(muteEntry -> (muteEntry.get("uuid").toString().equalsIgnoreCase(uuid)));
     }
 
-    @Override
-    public void save() {
-        long timeTracker = System.currentTimeMillis();
-        Config.super.save();
-        ChatCat.get().log("Saved mute cache in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
-    }
 
     public boolean isMuted(String uuid) {
         List<HashMap<String, Object>> duplicate = new ArrayList<>(mutes);

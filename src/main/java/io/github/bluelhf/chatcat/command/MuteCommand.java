@@ -42,6 +42,12 @@ public class MuteCommand implements WrappedCommand {
             if (flagMap.containsKey(args[0])) {
                 flagMap.put(args[0], true);
                 args = Arrays.copyOfRange(args, 1, args.length);
+
+                // Perform this check again because we got rid of an argument
+                if (args.length == 0) {
+                    TextUtils.sendMessage(sender, ChatCat.get().getChatConfig().invalidArguments);
+                    return true;
+                }
             }
         }
 
@@ -58,13 +64,10 @@ public class MuteCommand implements WrappedCommand {
 
             // To specify a reason, the user also has to
             // specify a duration. This could be changed, but I think it works nicely.
-            if (InputUtils.inputToDuration(args[1]) == null) {
+            duration = InputUtils.inputToDuration(args[1]);
+            if (duration == null) {
                 TextUtils.sendMessage(sender, ChatCat.get().getChatConfig().invalidArguments);
                 return true;
-            } else {
-                // inputToDuration automatically adds P and T characters as specified by the
-                // ISO-8601 duration format. (PnDTnHnMn.nS)
-                duration = InputUtils.inputToDuration(args[1]);
             }
 
             // We have to do this because reasons can be more than 1 argument.
@@ -75,7 +78,7 @@ public class MuteCommand implements WrappedCommand {
 
             // Here we have to remove the first character, which is a space, from the output of builder.toString()
             // We don't want to do this if the length of it is 0, though, since that'll give us an exception.
-            reason = builder.toString().length() > 0 ? builder.toString().substring(1) : "";
+            reason = builder.toString().length() > 0 ? builder.substring(1) : "";
         }
 
         ChatCat.get().mutePlayer(player, duration, reason, flagMap.get("-s"));
