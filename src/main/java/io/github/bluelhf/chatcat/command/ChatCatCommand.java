@@ -13,17 +13,13 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class ChatCommand implements WrappedCommand {
+public class ChatCatCommand implements WrappedCommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String label, String[] args) {
         if (args.length == 0) {
             TextUtils.sendMessage(commandSender, helpMessage(label));
         } else if (args[0].equalsIgnoreCase("reload")) {
-            if (!commandSender.hasPermission("chatcat.reload")) {
-                TextUtils.sendMessage(commandSender, ChatCat.get().getChatConfig().permissionMessage);
-                return true;
-            }
             TextUtils.sendMessage(commandSender, "&bReloading...");
             long start = System.currentTimeMillis();
             ChatCat.get().getChatConfig().load();
@@ -34,7 +30,7 @@ public class ChatCommand implements WrappedCommand {
     }
 
     private String helpMessage(String label) {
-        return "&bCommands for Chat\n" +
+        return "&bCommands for ChatCat\n" +
                "&f  /" + label + " reload &7- &fReloads the configuration.\n" +
                "&f  /mute [-s] <player> <duration> [<reason>] &7- &fMutes a player.\n" +
                "&f  /unmute [-s] <player> &7- &fUnmutes a player.";
@@ -57,12 +53,12 @@ public class ChatCommand implements WrappedCommand {
 
     @Override
     public @Nullable String getPermission() {
-        return null;
+        return "chatcat.admin";
     }
 
     @Override
     public @Nullable String getPermissionMessage() {
-        return null;
+        return TextUtils.colour(ChatCat.get().getChatConfig().permissionMessage);
     }
 
     @Override

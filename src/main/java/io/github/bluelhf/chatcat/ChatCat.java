@@ -1,7 +1,7 @@
 package io.github.bluelhf.chatcat;
 
 import com.moderocky.mask.template.BukkitPlugin;
-import io.github.bluelhf.chatcat.command.ChatCommand;
+import io.github.bluelhf.chatcat.command.ChatCatCommand;
 import io.github.bluelhf.chatcat.command.MuteCommand;
 import io.github.bluelhf.chatcat.command.UnmuteCommand;
 import io.github.bluelhf.chatcat.configuration.ChatConfig;
@@ -10,10 +10,8 @@ import io.github.bluelhf.chatcat.hook.PAPIHook;
 import io.github.bluelhf.chatcat.hook.VaultHook;
 import io.github.bluelhf.chatcat.listener.ChatFormatter;
 import io.github.bluelhf.chatcat.listener.MuteHandler;
-import io.github.bluelhf.chatcat.util.InputUtils;
 import io.github.bluelhf.chatcat.util.TextUtils;
 import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -78,7 +76,7 @@ public class ChatCat extends BukkitPlugin {
         Bukkit.getPluginManager().registerEvents(new ChatFormatter(), this);
         Bukkit.getPluginManager().registerEvents(new MuteHandler(), this);
         register(new MuteCommand());
-        register(new ChatCommand());
+        register(new ChatCatCommand());
         register(new UnmuteCommand());
         log("Registered events and commands in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
 
