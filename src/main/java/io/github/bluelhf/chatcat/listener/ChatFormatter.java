@@ -18,7 +18,7 @@ public class ChatFormatter implements Listener {
 
         BaseComponent[] message = TextUtils.fromLegacyString(
                 e.getFormat().contains("%") ? String.format(e.getFormat(), e.getPlayer().getDisplayName(), TextUtils.formatSafe(e.getMessage())) : e.getFormat(),
-                e.getPlayer().hasPermission("chat.format")
+                e.getPlayer().hasPermission("chatcat.format")
         );
 
         for(Player recipient : e.getRecipients()) {

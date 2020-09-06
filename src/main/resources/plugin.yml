@@ -5,3 +5,12 @@ main: ${project.groupId}.chatcat.${project.artifactId}
 softdepend:
   - PlaceholderAPI
   - Vault
+permission:
+  chatcat.format:
+    description: Allows for chat formatting.
+  chatcat.mutes.mute:
+    description: Allows muting of players
+  chatcat.mutes.unmute:
+    description: Allows unmuting of players
+  chatcat.admin:
+    description: Allows use of the /chatcat command

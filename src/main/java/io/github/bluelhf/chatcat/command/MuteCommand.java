@@ -22,10 +22,6 @@ import java.util.stream.Collectors;
 public class MuteCommand implements WrappedCommand {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
-        if (!sender.hasPermission("chatcat.mutes.mute")) {
-            TextUtils.sendMessage(sender, ChatCat.get().getChatConfig().permissionMessage);
-            return true;
-        }
 
         if (args.length == 0) {
             TextUtils.sendMessage(sender, ChatCat.get().getChatConfig().invalidArguments);
@@ -131,7 +127,7 @@ public class MuteCommand implements WrappedCommand {
 
     @Override
     public @Nullable String getPermission() {
-        return "chat.mutes.mute";
+        return "chatcat.mutes.mute";
     }
 
     @Override
