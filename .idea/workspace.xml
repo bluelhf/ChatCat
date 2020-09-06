@@ -22,12 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81d02287-79e7-4d6e-b593-3f289a10e1e2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="81d02287-79e7-4d6e-b593-3f289a10e1e2" name="Default Changelist" comment="Fix two NPEs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatCat.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/command/MuteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/command/MuteCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/configuration/MuteConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/configuration/MuteConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/ChatCat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/ChatCat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +80,9 @@
       <workItem from="1598731286435" duration="165000" />
       <workItem from="1598763744729" duration="3009000" />
       <workItem from="1598899195074" duration="100000" />
-      <workItem from="1598899299694" duration="1007000" />
+      <workItem from="1598899299694" duration="1714000" />
+      <workItem from="1599384546115" duration="11000" />
+      <workItem from="1599399705097" duration="2676000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1594634006635</created>
@@ -91,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594634006635</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fix two NPEs">
+      <created>1598902414778</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598902414778</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,7 +121,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Fix two NPEs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix two NPEs" />
   </component>
   <component name="WindowStateProjectService">
     <state x="847" y="335" key="#Notifications" timestamp="1594634090811">
@@ -154,34 +162,34 @@
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="836" y="401" key="Github.ShareDialog/0.0.1920.999@0.0.1920.999" timestamp="1594634275867" />
-    <state width="938" height="268" key="GridCell.Tab.0.bottom" timestamp="1598899413705">
+    <state width="938" height="268" key="GridCell.Tab.0.bottom" timestamp="1599403157862">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state width="1495" height="214" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598806632310" />
-    <state width="938" height="268" key="GridCell.Tab.0.bottom/0.0.1920.999@0.0.1920.999" timestamp="1598899413705" />
-    <state width="938" height="268" key="GridCell.Tab.0.center" timestamp="1598899413705">
+    <state width="938" height="268" key="GridCell.Tab.0.bottom/0.0.1920.999@0.0.1920.999" timestamp="1599403157862" />
+    <state width="938" height="268" key="GridCell.Tab.0.center" timestamp="1599403157861">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state width="1495" height="214" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1598806632309" />
-    <state width="938" height="268" key="GridCell.Tab.0.center/0.0.1920.999@0.0.1920.999" timestamp="1598899413705" />
-    <state width="938" height="268" key="GridCell.Tab.0.left" timestamp="1598899413705">
+    <state width="938" height="268" key="GridCell.Tab.0.center/0.0.1920.999@0.0.1920.999" timestamp="1599403157861" />
+    <state width="938" height="268" key="GridCell.Tab.0.left" timestamp="1599403157861">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state width="1495" height="214" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1598806632309" />
-    <state width="938" height="268" key="GridCell.Tab.0.left/0.0.1920.999@0.0.1920.999" timestamp="1598899413705" />
-    <state width="938" height="268" key="GridCell.Tab.0.right" timestamp="1598899413705">
+    <state width="938" height="268" key="GridCell.Tab.0.left/0.0.1920.999@0.0.1920.999" timestamp="1599403157861" />
+    <state width="938" height="268" key="GridCell.Tab.0.right" timestamp="1599403157862">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state width="1495" height="214" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598806632309" />
-    <state width="938" height="268" key="GridCell.Tab.0.right/0.0.1920.999@0.0.1920.999" timestamp="1598899413705" />
+    <state width="938" height="268" key="GridCell.Tab.0.right/0.0.1920.999@0.0.1920.999" timestamp="1599403157862" />
     <state x="461" y="144" key="SettingsEditor" timestamp="1594634224954">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="461" y="144" key="SettingsEditor/0.0.1920.999@0.0.1920.999" timestamp="1594634224954" />
-    <state x="552" y="228" key="Vcs.Push.Dialog.v2" timestamp="1594634079011">
+    <state x="552" y="228" key="Vcs.Push.Dialog.v2" timestamp="1598902416699">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="552" y="228" key="Vcs.Push.Dialog.v2/0.0.1920.999@0.0.1920.999" timestamp="1594634079011" />
+    <state x="552" y="228" key="Vcs.Push.Dialog.v2/0.0.1920.999@0.0.1920.999" timestamp="1598902416699" />
     <state x="283" y="160" key="caller.chooser.dialog" timestamp="1598723659303">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -190,5 +198,9 @@
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="767" y="409" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.999@0.0.1920.999" timestamp="1594634111266" />
+    <state x="542" y="160" key="new project wizard" timestamp="1599406893092">
+      <screen x="0" y="0" width="1920" height="999" />
+    </state>
+    <state x="542" y="160" key="new project wizard/0.0.1920.999@0.0.1920.999" timestamp="1599406893092" />
   </component>
 </project>

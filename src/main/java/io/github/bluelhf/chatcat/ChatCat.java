@@ -12,6 +12,7 @@ import io.github.bluelhf.chatcat.listener.ChatFormatter;
 import io.github.bluelhf.chatcat.listener.MuteHandler;
 import io.github.bluelhf.chatcat.util.InputUtils;
 import io.github.bluelhf.chatcat.util.TextUtils;
+import net.md_5.bungee.api.chat.BaseComponent;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.bukkit.Bukkit;
@@ -23,6 +24,16 @@ import java.time.Duration;
 import java.util.*;
 
 public class ChatCat extends BukkitPlugin {
+
+    public static String[] BANNER = {
+        "&b_________ .__            __   _________         __",
+        "&b\\_   ___ \\|  |__ _____ _/  |_ \\_   ___ \\_____ _/  |_",
+        "&b/    \\  \\/|  |  \\\\__  \\\\   __\\/    \\  \\/\\__  \\\\   __\\    &3ChatCat &bv{ver}",
+        "&b\\     \\___|   Y  \\/ __ \\|  |  \\     \\____/ __ \\|  |      Hooked into {hooks}",
+        "&b \\______  /___|  (____  /__|   \\______  (____  /__|",
+        "&b        \\/     \\/     \\/              \\/     \\/",
+        ""
+    };
 
     private VaultHook vaultAPI;
     private PAPIHook PAPI;
@@ -57,7 +68,7 @@ public class ChatCat extends BukkitPlugin {
         List<String> hooks = new ArrayList<>();
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             PAPI = new PAPIHook();
-            hooks.add("PlaceholderAPI");
+            hooks.add("PAPI");
         }
         if (Bukkit.getPluginManager().isPluginEnabled("Vault")) {
             vaultAPI = new VaultHook();
@@ -82,13 +93,12 @@ public class ChatCat extends BukkitPlugin {
         register(new UnmuteCommand());
         log("Registered events and commands in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
 
-        Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString("   &b____ _           _   ", true));
-        Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString("  &b/ ___| |__   __ _| |_ ", true));
-        Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString(" &b| |   | '_ \\ / _` | __|    &3Chat &bv" + getDescription().getVersion(), true));
-        Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString(" &b| |___| | | | (_| | |_     Hooked into " + hookString, true));
-        Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString("  &b\\____|_| |_|\\__,_|\\__|", true));
-        Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString("                             ", true));
-
+        for (String s : BANNER) {
+            BaseComponent[] line = TextUtils.fromLegacyString(s
+                .replace("{ver}", getDescription().getVersion())
+                .replace("{hooks}", hookString), true);
+            Bukkit.getConsoleSender().spigot().sendMessage(line);
+        }
 
     }
 
