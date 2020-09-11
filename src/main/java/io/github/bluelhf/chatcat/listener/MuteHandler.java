@@ -2,7 +2,6 @@ package io.github.bluelhf.chatcat.listener;
 
 import io.github.bluelhf.chatcat.ChatCat;
 import io.github.bluelhf.chatcat.util.TextUtils;
-import org.apache.logging.log4j.Level;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -10,6 +9,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.logging.Level;
 
 public class MuteHandler implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -23,7 +23,7 @@ public class MuteHandler implements Listener {
                 double seconds = Double.parseDouble(muteEntry.getOrDefault("expiry", -1).toString());
                 Duration duration = Duration.ofSeconds(seconds != -1 ? (long) Math.ceil(seconds - System.currentTimeMillis() / 1000.0) : -1);
                 String humanReadable = TextUtils.humanReadableDuration(duration, true);
-                ChatCat.get().log(uuid + " tried to speak while muted: " + muteEntry.toString(), Level.DEBUG);
+                ChatCat.get().log(uuid + " tried to speak while muted: " + muteEntry.toString(), Level.FINE);
                 if (Boolean.parseBoolean(String.valueOf(muteEntry.get("soft")))) {
                     e.getRecipients().clear();
                     e.getRecipients().add(e.getPlayer());

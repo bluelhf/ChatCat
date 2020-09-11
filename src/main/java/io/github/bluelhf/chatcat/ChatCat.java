@@ -12,7 +12,6 @@ import io.github.bluelhf.chatcat.listener.ChatFormatter;
 import io.github.bluelhf.chatcat.listener.MuteHandler;
 import io.github.bluelhf.chatcat.util.TextUtils;
 import net.md_5.bungee.api.chat.BaseComponent;
-import org.apache.logging.log4j.Level;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -20,6 +19,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.time.Duration;
 import java.util.*;
+import java.util.logging.Level;
 
 public class ChatCat extends BukkitPlugin {
 
@@ -45,7 +45,7 @@ public class ChatCat extends BukkitPlugin {
     public void startup() {
         long timeTracker = System.currentTimeMillis();
         config = new ChatConfig();
-        log("Initialised config in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
+        log("Initialised config in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.FINEST);
 
 
         timeTracker = System.currentTimeMillis();
@@ -59,7 +59,7 @@ public class ChatCat extends BukkitPlugin {
                 muteCache.save();
             }
         }, 0, 1800000); // period is in ms, 1800000ms = 30min
-        log("Initialised mute cache in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
+        log("Initialised mute cache in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.FINEST);
 
 
         timeTracker = System.currentTimeMillis();
@@ -82,14 +82,14 @@ public class ChatCat extends BukkitPlugin {
         }
         String hookString = hookBuilder.toString().length() >= 2 ? hookBuilder.toString().substring(0, hookBuilder.toString().length() - 2) + "!" : "nothing.";
 
-        log("Loaded " + hooks.size() + " hooks in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
+        log("Loaded " + hooks.size() + " hooks in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.FINEST);
         timeTracker = System.currentTimeMillis();
         Bukkit.getPluginManager().registerEvents(new ChatFormatter(), this);
         Bukkit.getPluginManager().registerEvents(new MuteHandler(), this);
         register(new MuteCommand());
         register(new ChatCatCommand());
         register(new UnmuteCommand());
-        log("Registered events and commands in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
+        log("Registered events and commands in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.FINEST);
 
         for (String s : BANNER) {
             BaseComponent[] line = TextUtils.fromLegacyString(s
@@ -133,8 +133,16 @@ public class ChatCat extends BukkitPlugin {
      *                 logging prefix (usually its name, unless otherwise defined in plugin.yml)
      */
     public void log(String msg, Level logLevel) {
-        if (logLevel.intLevel() <= Level.toLevel(config.logLevel, Level.INFO).intLevel())
+        if (logLevel.intValue() <= safeParse(config.logLevel, Level.INFO).intValue())
             getLogger().info(msg);
+    }
+
+    public Level safeParse(String level, Level defaultLevel) {
+        try {
+            return Level.parse(level);
+        } catch (NullPointerException | IllegalArgumentException e) {
+            return defaultLevel;
+        }
     }
 
     public void unmutePlayer(OfflinePlayer player) {
