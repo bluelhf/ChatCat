@@ -2,8 +2,6 @@ package io.github.bluelhf.chatcat.configuration;
 
 import com.moderocky.mask.annotation.Configurable;
 import com.moderocky.mask.template.Config;
-import io.github.bluelhf.chatcat.ChatCat;
-import org.apache.logging.log4j.Level;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;

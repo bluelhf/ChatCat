@@ -11,7 +11,7 @@ import io.github.bluelhf.chatcat.hook.VaultHook;
 import io.github.bluelhf.chatcat.listener.ChatFormatter;
 import io.github.bluelhf.chatcat.listener.MuteHandler;
 import io.github.bluelhf.chatcat.util.TextUtils;
-import org.apache.logging.log4j.Level;
+import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,8 +19,19 @@ import org.jetbrains.annotations.NotNull;
 
 import java.time.Duration;
 import java.util.*;
+import java.util.logging.Level;
 
 public class ChatCat extends BukkitPlugin {
+
+    public static String[] BANNER = {
+        "&b_________ .__            __   _________         __",
+        "&b\\_   ___ \\|  |__ _____ _/  |_ \\_   ___ \\_____ _/  |_",
+        "&b/    \\  \\/|  |  \\\\__  \\\\   __\\/    \\  \\/\\__  \\\\   __\\    &3ChatCat &bv{ver}",
+        "&b\\     \\___|   Y  \\/ __ \\|  |  \\     \\____/ __ \\|  |      Hooked into {hooks}",
+        "&b \\______  /___|  (____  /__|   \\______  (____  /__|",
+        "&b        \\/     \\/     \\/              \\/     \\/",
+        ""
+    };
 
     private VaultHook vaultAPI;
     private PAPIHook PAPI;
@@ -34,7 +45,7 @@ public class ChatCat extends BukkitPlugin {
     public void startup() {
         long timeTracker = System.currentTimeMillis();
         config = new ChatConfig();
-        log("Initialised config in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
+        log("Initialised config in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.FINEST);
 
 
         timeTracker = System.currentTimeMillis();
@@ -48,14 +59,14 @@ public class ChatCat extends BukkitPlugin {
                 muteCache.save();
             }
         }, 0, 1800000); // period is in ms, 1800000ms = 30min
-        log("Initialised mute cache in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
+        log("Initialised mute cache in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.FINEST);
 
 
         timeTracker = System.currentTimeMillis();
         List<String> hooks = new ArrayList<>();
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             PAPI = new PAPIHook();
-            hooks.add("PlaceholderAPI");
+            hooks.add("PAPI");
         }
         if (Bukkit.getPluginManager().isPluginEnabled("Vault")) {
             vaultAPI = new VaultHook();
@@ -71,22 +82,21 @@ public class ChatCat extends BukkitPlugin {
         }
         String hookString = hookBuilder.toString().length() >= 2 ? hookBuilder.toString().substring(0, hookBuilder.toString().length() - 2) + "!" : "nothing.";
 
-        log("Loaded " + hooks.size() + " hooks in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
+        log("Loaded " + hooks.size() + " hooks in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.FINEST);
         timeTracker = System.currentTimeMillis();
         Bukkit.getPluginManager().registerEvents(new ChatFormatter(), this);
         Bukkit.getPluginManager().registerEvents(new MuteHandler(), this);
         register(new MuteCommand());
         register(new ChatCatCommand());
         register(new UnmuteCommand());
-        log("Registered events and commands in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.TRACE);
+        log("Registered events and commands in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.FINEST);
 
-        Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString("   &b____ _           _   ", true));
-        Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString("  &b/ ___| |__   __ _| |_ ", true));
-        Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString(" &b| |   | '_ \\ / _` | __|    &3Chat &bv" + getDescription().getVersion(), true));
-        Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString(" &b| |___| | | | (_| | |_     Hooked into " + hookString, true));
-        Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString("  &b\\____|_| |_|\\__,_|\\__|", true));
-        Bukkit.getConsoleSender().spigot().sendMessage(TextUtils.fromLegacyString("                             ", true));
-
+        for (String s : BANNER) {
+            BaseComponent[] line = TextUtils.fromLegacyString(s
+                .replace("{ver}", getDescription().getVersion())
+                .replace("{hooks}", hookString), true);
+            Bukkit.getConsoleSender().spigot().sendMessage(line);
+        }
 
     }
 
@@ -123,8 +133,16 @@ public class ChatCat extends BukkitPlugin {
      *                 logging prefix (usually its name, unless otherwise defined in plugin.yml)
      */
     public void log(String msg, Level logLevel) {
-        if (logLevel.intLevel() <= Level.toLevel(config.logLevel, Level.INFO).intLevel())
+        if (logLevel.intValue() <= safeParse(config.logLevel, Level.INFO).intValue())
             getLogger().info(msg);
+    }
+
+    public Level safeParse(String level, Level defaultLevel) {
+        try {
+            return Level.parse(level);
+        } catch (NullPointerException | IllegalArgumentException e) {
+            return defaultLevel;
+        }
     }
 
     public void unmutePlayer(OfflinePlayer player) {
