@@ -29,12 +29,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81d02287-79e7-4d6e-b593-3f289a10e1e2" name="Default Changelist" comment="Add .gitignore">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/ChatCat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/ChatCat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/configuration/MuteConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/configuration/MuteConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/listener/MuteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/listener/MuteHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/util/TextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/util/TextUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
