@@ -56,6 +56,9 @@ public class ChatConfig implements Config {
     @Configurable
     @Configurable.Keyed("logLevelValue")
     public @NotNull String logLevel = "INFO";
+    @Configurable
+    @Configurable.Keyed("sam_mode")
+    public boolean samMode = false;
 
     @Override
     public @NotNull String getFolderPath() {
