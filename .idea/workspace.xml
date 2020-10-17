@@ -28,13 +28,25 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81d02287-79e7-4d6e-b593-3f289a10e1e2" name="Default Changelist" comment="Add .gitignore">
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/util/TextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/util/TextUtils.java" afterDir="false" />
+    <list default="true" id="81d02287-79e7-4d6e-b593-3f289a10e1e2" name="Default Changelist" comment="Update version number">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/command/NickCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/ChatCat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/ChatCat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/configuration/ChatConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/chatcat/configuration/ChatConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -74,6 +86,19 @@
       <recent name="C:\Users\bluelhf\GitHub\ChatCat\src\main\java\io\github\bluelhf\chatcat" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
@@ -98,6 +123,10 @@
       <workItem from="1599123388076" duration="155000" />
       <workItem from="1599843629337" duration="131000" />
       <workItem from="1599846482157" duration="495000" />
+      <workItem from="1599955531122" duration="73000" />
+      <workItem from="1600082868473" duration="14000" />
+      <workItem from="1600346127274" duration="664000" />
+      <workItem from="1602964259511" duration="5066000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1594634006635</created>
@@ -120,7 +149,21 @@
       <option name="project" value="LOCAL" />
       <updated>1598987681902</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Very important changes">
+      <created>1599954084157</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1599954084157</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Update version number">
+      <created>1599954225642</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1599954225642</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,7 +200,9 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Update to Mask 3, finalise rename to ChatCat" />
     <MESSAGE value="Rename more things to ChatCat, add permissions to plugin.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename more things to ChatCat, add permissions to plugin.yml" />
+    <MESSAGE value="Very important changes" />
+    <MESSAGE value="Update version number" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update version number" />
   </component>
   <component name="WindowStateProjectService">
     <state x="847" y="335" key="#Notifications" timestamp="1594634090811">
@@ -197,22 +242,26 @@
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="836" y="401" key="Github.ShareDialog/0.0.1920.999@0.0.1920.999" timestamp="1594634275867" />
-    <state width="1495" height="214" key="GridCell.Tab.0.bottom" timestamp="1599846953824">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="938" height="286" key="GridCell.Tab.0.bottom" timestamp="1602969324589">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1495" height="214" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599846953824" />
-    <state width="1495" height="214" key="GridCell.Tab.0.center" timestamp="1599846953824">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="747" height="214" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599955352562" />
+    <state width="938" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602969324589" />
+    <state width="938" height="286" key="GridCell.Tab.0.center" timestamp="1602969324588">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1495" height="214" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1599846953824" />
-    <state width="1495" height="214" key="GridCell.Tab.0.left" timestamp="1599846953824">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="747" height="214" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1599955352562" />
+    <state width="938" height="286" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602969324588" />
+    <state width="938" height="286" key="GridCell.Tab.0.left" timestamp="1602969324588">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1495" height="214" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1599846953824" />
-    <state width="1495" height="214" key="GridCell.Tab.0.right" timestamp="1599846953824">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="747" height="214" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1599955352561" />
+    <state width="938" height="286" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602969324588" />
+    <state width="938" height="286" key="GridCell.Tab.0.right" timestamp="1602969324588">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1495" height="214" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1599846953824" />
+    <state width="747" height="214" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1599955352562" />
+    <state width="938" height="286" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602969324588" />
     <state x="406" y="175" key="MultipleFileMergeDialog" timestamp="1598987839013">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -221,19 +270,19 @@
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="461" y="144" key="SettingsEditor/0.0.1920.999@0.0.1920.999" timestamp="1594634224954" />
-    <state x="442" y="188" key="Vcs.Push.Dialog.v2" timestamp="1599843714141">
+    <state x="442" y="188" key="Vcs.Push.Dialog.v2" timestamp="1599954228103">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="442" y="188" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1599843714141" />
+    <state x="442" y="188" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1599954228103" />
     <state x="552" y="228" key="Vcs.Push.Dialog.v2/0.0.1920.999@0.0.1920.999" timestamp="1594634079011" />
     <state x="283" y="160" key="caller.chooser.dialog" timestamp="1598723659303">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="283" y="160" key="caller.chooser.dialog/0.0.1536.824@0.0.1536.824" timestamp="1598723659303" />
-    <state x="614" y="337" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599843707323">
+    <state x="614" y="337" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599954188404">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="614" y="337" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1599843707323" />
+    <state x="614" y="337" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1599954188404" />
     <state x="767" y="409" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.999@0.0.1920.999" timestamp="1594634111266" />
     <state x="473" y="22" width="590" height="780" key="find.popup" timestamp="1598981172892">
       <screen x="0" y="0" width="1536" height="824" />

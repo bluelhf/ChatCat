@@ -3,6 +3,7 @@ package io.github.bluelhf.chatcat;
 import com.moderocky.mask.template.BukkitPlugin;
 import io.github.bluelhf.chatcat.command.ChatCatCommand;
 import io.github.bluelhf.chatcat.command.MuteCommand;
+import io.github.bluelhf.chatcat.command.NickCommand;
 import io.github.bluelhf.chatcat.command.UnmuteCommand;
 import io.github.bluelhf.chatcat.configuration.ChatConfig;
 import io.github.bluelhf.chatcat.configuration.MuteConfig;
@@ -89,6 +90,7 @@ public class ChatCat extends BukkitPlugin {
         register(new MuteCommand());
         register(new ChatCatCommand());
         register(new UnmuteCommand());
+        register(new NickCommand());
         log("Registered events and commands in " + (System.currentTimeMillis() - timeTracker) + "ms", Level.FINEST);
 
         for (String s : BANNER) {

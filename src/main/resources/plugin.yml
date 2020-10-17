@@ -14,3 +14,7 @@ permission:
     description: Allows unmuting of players
   chatcat.admin:
     description: Allows use of the /chatcat command
+  chatcat.nick:
+    description: Allows players to use /nick
+  chatcat.nick.other:
+    description: Allows players to /nick other people
