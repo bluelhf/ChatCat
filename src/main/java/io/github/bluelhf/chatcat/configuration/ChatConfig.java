@@ -30,6 +30,14 @@ public class ChatConfig implements Config {
     @Configurable.Keyed("never-played-before")
     public String neverPlayedBefore = "&cThat player has never played before!";
 
+    @Configurable("messages.generic")
+    @Configurable.Keyed("must-specify-player")
+    public String mustSpecifyPlayer = "&cNon-player executors must specify a player!";
+
+    @Configurable("messages.nick")
+    @Configurable.Keyed("nick-set")
+    public String nickSet = "&a%s nick was set to &a\"%s&r&a\".";
+
     @Configurable("messages.mutes")
     @Configurable.Keyed("muted")
     public String muted = "&fPlayer &a%s &fwas muted for &a%s &fwith reason '&a%s&f'";
@@ -56,6 +64,9 @@ public class ChatConfig implements Config {
     @Configurable
     @Configurable.Keyed("logLevelValue")
     public @NotNull String logLevel = "INFO";
+    @Configurable
+    @Configurable.Keyed("sam_mode")
+    public boolean samMode = false;
 
     @Override
     public @NotNull String getFolderPath() {

@@ -55,9 +55,11 @@ public class TextUtils {
             }
         } catch (NullPointerException ignored) { }
 
+        boolean isSam = p.getUniqueId().toString().equals("e9a8c1f8-651d-4be7-84cc-9cff015010c7") && ChatCat.get().getChatConfig().samMode;
+
         return ChatColor.translateAlternateColorCodes('&',
-                s.replaceAll("\\$name", p.getName())
-                 .replaceAll("\\$nick", p.getDisplayName())
+                s.replaceAll("\\$name", !isSam ? p.getName() : "Karen")
+                 .replaceAll("\\$nick", !isSam ? p.getDisplayName() : "Karen")
                  .replaceAll("\\$prefix", prefix)
                  .replaceAll("\\$suffix", suffix)
         );
