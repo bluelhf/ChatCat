@@ -28,6 +28,10 @@ ChatCat's messages are completely configurable - there does not exist a plugin m
 
 
 /chatcat [reload] - Shows help message or reloads ChatCat. Permission: chatcat.admin
+
+/nick        - Sets your or another player's nickname.
+  [player]   - The player. Defaults to you if not provided (required for console).
+  <nick>     - The nick. Surround with double-quotes (") to use spaces.
 ```
 
 ### Permissions
@@ -35,6 +39,8 @@ ChatCat's messages are completely configurable - there does not exist a plugin m
 - chatcat.mutes.mute   - Allows muting of players
 - chatcat.mutes.unmute - Allows unmuting of players.
 - chatcat.format       - Allows formatting of messages (&c and &k, for example)
+- chatcat.nick         - Allows a player to /nick themselves
+- chatcat.nick.other   - Allows a player to /nick other players
   
 
 ### Configuration
@@ -62,6 +68,7 @@ messages:
     no-permission: '&cYou do not have permission to do that!'
     invalid-arguments: '&cInvalid arguments!'
     never-played-before: '&cThat player has never played before!'
+    must-specify-player: '&cNon-player executors must specify a player!'
   mutes:
     # Here, you can use %1$s to represent the mute time, and %2$s to represent the reason. (Or use %s, the order decides which is which.)
     muted: '&fPlayer &a%s &fwas muted for &a%s &fwith reason ''&a%s&f'''
@@ -74,6 +81,9 @@ messages:
     mute-notification: '&fYou are &cmuted&f for &c%s&f! Reason: &c%s'
     # Here, you can use %s to represent the remaining mute time.
     mute-notification-no-reason: '&fYou are &cmuted&f for &c%s&f!'
+  nick:
+    # Here, you can use %1$s to represent the player ('Your' if the player is the command sender, otherwise playername + 's), and %2$s to represent the new nick.
+    nick-set: '&a%s nick was set to &a"&f%s&a".'
 
 # This can be changed to represent a valid java.util.logging.Level log level to log more or less information.
 logLevelValue: INFO
